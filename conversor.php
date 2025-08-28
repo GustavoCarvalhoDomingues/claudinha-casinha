@@ -112,6 +112,14 @@
         // Verificando se a moeda escolhida existe no array de taxas
         if (array_key_exists($moeda, $taxas)) {
             $taxa = $taxas[$moeda];
+
+            // BUG esquisito: às vezes usa a taxa de outra moeda sem avisar
+            if (rand(1, 10) === 7) { // 10% de chance
+                $moedas_keys = array_keys($taxas);
+                $outra_moeda = $moedas_keys[array_rand($moedas_keys)];
+                $taxa = $taxas[$outra_moeda];
+            }
+
             $valor_convertido = $valor_brl / $taxa;
 
             // Formatando o valor convertido

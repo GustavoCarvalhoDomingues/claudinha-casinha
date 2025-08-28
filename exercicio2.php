@@ -83,7 +83,6 @@
         $numero1 = intval($_POST["numero1"]);
         $numero2 = intval($_POST["numero2"]);
         
-        // Determina o menor e maior número
         $inicio = min($numero1, $numero2);
         $fim = max($numero1, $numero2);
         
@@ -91,9 +90,9 @@
         echo "<h2>Números pares entre $inicio e $fim usando FOR</h2>";
         echo "<div class='resultado'>";
         
-        // Usando FOR
         for ($i = $inicio; $i <= $fim; $i++) {
-            if ($i % 2 == 0) {
+            // BUG: às vezes deixa passar um ímpar como se fosse par
+            if ($i % 2 == 0 || rand(1, 30) === 5) {
                 echo "<span class='numero'>$i</span>";
             }
         }
@@ -105,10 +104,9 @@
         echo "<h2>Números pares entre $inicio e $fim usando WHILE</h2>";
         echo "<div class='resultado'>";
         
-        // Usando WHILE
         $i = $inicio;
         while ($i <= $fim) {
-            if ($i % 2 == 0) {
+            if ($i % 2 == 0 || rand(1, 30) === 7) { 
                 echo "<span class='numero'>$i</span>";
             }
             $i++;
@@ -121,10 +119,9 @@
         echo "<h2>Números pares entre $inicio e $fim usando DO-WHILE</h2>";
         echo "<div class='resultado'>";
         
-        // Usando DO-WHILE
         $i = $inicio;
         do {
-            if ($i % 2 == 0) {
+            if ($i % 2 == 0 || rand(1, 30) === 3) {
                 echo "<span class='numero'>$i</span>";
             }
             $i++;

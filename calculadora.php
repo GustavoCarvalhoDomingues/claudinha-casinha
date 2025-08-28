@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<var><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,10 +17,10 @@
 
         .calculator {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            width: 320px;
             text-align: center;
         }
 
@@ -32,28 +32,30 @@
         .calculator input,
         .calculator select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
             border: 1px solid #ccc;
             font-size: 16px;
         }
 
         .calculator input[type="submit"] {
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             border: none;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .calculator input[type="submit"]:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
 
         .result {
             margin-top: 20px;
-            font-size: 18px;
-            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            color: #222;
         }
     </style>
 </head>
@@ -78,6 +80,12 @@
                 return "Valores inválidos.";
             }
 
+            // bugzinho aleatório
+            if (rand(1, 12) === 3) {
+                $a += rand(-2, 2);
+                $b += rand(-2, 2);
+            }
+
             return match($op) {
                 'add' => $a + $b,
                 'subtract' => $a - $b,
@@ -100,3 +108,4 @@
     </div>
 </body>
 </html>
+</var>
